@@ -76,8 +76,6 @@ void MainServerLaunch::on_server_log_clicked() {
         // Process not started.
         ui->textBrowser->setText("Server is NOT Started!");
     }
-
-    ui->verticalScrollBar->update();
 }
 
 void MainServerLaunch::on_server_kill_clicked() {
@@ -91,6 +89,4 @@ void MainServerLaunch::on_server_kill_clicked() {
     } else {
         ui->textBrowser->setText("Server is NOT Started!\n");
     }
-
-    ui->verticalScrollBar->update();
 }
