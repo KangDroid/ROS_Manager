@@ -22,20 +22,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH = $$PWD/include
 
 SOURCES += \
-        main.cpp \
-    MainServerLaunch.cpp \
-    tabdialog.cpp \
-    DeviceInformation.cpp \
-    threadupdate.cpp
+        src/main.cpp \
+    src/MainServerLaunch.cpp \
+    src/tabdialog.cpp \
+    src/DeviceInformation.cpp \
+    src/threadupdate.cpp
 
 HEADERS += \
-    MainServerLaunch.h \
-    tabdialog.h \
-    DeviceInformation.h \
-    threadupdate.h
+    include/MainServerLaunch.h \
+    include/tabdialog.h \
+    include/DeviceInformation.h \
+    include/threadupdate.h
 
 FORMS += \
-    MainServerLaunch.ui \
-    DeviceInformation.ui
+    ui/MainServerLaunch.ui \
+    ui/DeviceInformation.ui

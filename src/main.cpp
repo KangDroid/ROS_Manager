@@ -1,4 +1,3 @@
-#include "dialog.h"
 #include "tabdialog.h"
 #include <QApplication>
 
