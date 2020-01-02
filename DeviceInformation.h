@@ -24,7 +24,6 @@ public:
 private slots:
     void on_mFirmwareInfo_clicked();
     void printOutput();
-    void getFWStatusInner();
     void on_thread_finish(const string val);
 
 private:

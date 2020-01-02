@@ -3,14 +3,12 @@
 
 MainServerLaunch::MainServerLaunch(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainServerLaunch)
-{
+    ui(new Ui::MainServerLaunch) {
     timer = 3;
     ui->setupUi(this);
 }
 
-MainServerLaunch::~MainServerLaunch()
-{
+MainServerLaunch::~MainServerLaunch() {
     delete ui;
 }
 
@@ -29,8 +27,7 @@ void MainServerLaunch::run_update() {
 }
 
 // Server starts
-void MainServerLaunch::on_server_launch_clicked()
-{
+void MainServerLaunch::on_server_launch_clicked() {
     /*
      * This is how we create process and show console output.
      * But, for now, using Process return value to recognize fail-success.
@@ -56,8 +53,7 @@ void MainServerLaunch::on_server_launch_clicked()
     //connect(&mProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(printOutput()));
 }
 
-void MainServerLaunch::on_server_log_clicked()
-{
+void MainServerLaunch::on_server_log_clicked() {
     if (mProcess.pid() > 0) {
         QProcess mTmpProcess;
         mTmpProcess.setProcessChannelMode(QProcess::MergedChannels);
@@ -84,8 +80,7 @@ void MainServerLaunch::on_server_log_clicked()
     ui->verticalScrollBar->update();
 }
 
-void MainServerLaunch::on_server_kill_clicked()
-{
+void MainServerLaunch::on_server_kill_clicked() {
     if (mProcess.pid() > 0) {
         ui->textBrowser->append("Terminate~\n");
         QString killingProcess = "kill -TERM -" + QString::number(mProcess.pid());

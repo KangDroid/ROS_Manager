@@ -1,7 +1,6 @@
 #include "threadupdate.h"
 
-ThreadUpdate::ThreadUpdate(QObject *parent): QThread(parent)
-{
+ThreadUpdate::ThreadUpdate(QObject *parent): QThread(parent) {
 }
 
 void ThreadUpdate::run() {
