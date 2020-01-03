@@ -29,16 +29,6 @@ void DeviceLauncher::on_vmburger_launch_clicked() {
     } else {
         QString program = "setsid /home/kangdroid/test_launch_vm.sh\n";
         mVMLaunchProcess.start(program);
-        /*mVMLaunchProcess.waitForStarted();
-        mVMLaunchProcess.write("source /opt/ros/melodic/setup.bash\n");
-        mVMLaunchProcess.write("source /home/kangdroid/catkin_ws/devel/setup.bash\n");
-        mVMLaunchProcess.write("source /home/kangdroid/catkin_ws/install_isolated/setup.bash\n");
-        mVMLaunchProcess.write("export ROS_MASTER_URI=http://192.168.0.17:11311\n");
-        mVMLaunchProcess.write("export ROS_HOSTNAME=192.168.0.17\n");
-        mVMLaunchProcess.write("roslaunch turtlebot3_fake turtlebot3_fake.launch\n");
-        mVMLaunchProcess.write("exit\n");*/
-        //sleep(2);
-        //system(qPrintable(program));
         connect(&mVMLaunchProcess, SIGNAL(readyReadStandardError()), this, SLOT(printOutput())); // When reading STDOUT
 
         // We have to finish process to read output. so use finished.
