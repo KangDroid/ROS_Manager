@@ -29,14 +29,17 @@ SOURCES += \
     src/MainServerLaunch.cpp \
     src/tabdialog.cpp \
     src/DeviceInformation.cpp \
-    src/threadupdate.cpp
+    src/threadupdate.cpp \
+    src/DeviceLauncher.cpp
 
 HEADERS += \
     include/MainServerLaunch.h \
     include/tabdialog.h \
     include/DeviceInformation.h \
-    include/threadupdate.h
+    include/threadupdate.h \
+    include/DeviceLauncher.h
 
 FORMS += \
     ui/MainServerLaunch.ui \
-    ui/DeviceInformation.ui
+    ui/DeviceInformation.ui \
+    ui/DeviceLauncher.ui
