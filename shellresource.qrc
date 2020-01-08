@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/script">
+        <file>test.sh</file>
+        <file>test_launch_vm.sh</file>
+    </qresource>
+</RCC>

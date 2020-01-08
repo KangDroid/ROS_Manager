@@ -28,6 +28,9 @@ void MainServerLaunch::run_update() {
 
 // Server starts
 void MainServerLaunch::on_server_launch_clicked() {
+    // TODO: Add server_launch_dest to somewhere global constants.
+    QString server_launch_dest = "/tmp/server_launch.sh";
+
     /*
      * This is how we create process and show console output.
      * But, for now, using Process return value to recognize fail-success.
@@ -35,7 +38,13 @@ void MainServerLaunch::on_server_launch_clicked() {
      * otherwise, just FAIL.
      * Make sure if process(QProcess) is not running till limit-time, Kill it.
     */
-    QString program = "setsid /home/kangdroid/test.sh";
+    QFile temp_file(":/script/test.sh");
+    temp_file.copy(server_launch_dest);
+    QFile(server_launch_dest).setPermissions(
+        QFileDevice::ReadUser |
+        QFileDevice::WriteUser |
+        QFileDevice::ExeUser);
+    QString program = "setsid /tmp/server_launch.sh";
     this->mProcess.setProcessChannelMode(QProcess::MergedChannels);
     mProcess.start(program);
     msgBox.setText("Server starting..");
@@ -86,6 +95,7 @@ void MainServerLaunch::on_server_kill_clicked() {
         if (mProcess.pid() > 0) {
             mProcess.terminate();
         }
+        QFile("/tmp/server_launch.sh").remove();
     } else {
         ui->textBrowser->setText("Server is NOT Started!\n");
     }

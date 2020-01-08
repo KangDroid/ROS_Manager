@@ -43,3 +43,6 @@ FORMS += \
     ui/MainServerLaunch.ui \
     ui/DeviceInformation.ui \
     ui/DeviceLauncher.ui
+
+RESOURCES += \
+    shellresource.qrc

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QProcess>
 #include <iostream>
+#include <QFile>
 
 using namespace std;
 

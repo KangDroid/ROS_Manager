@@ -11,6 +11,7 @@
 #include <string>
 #include <thread>
 #include <QTimer>
+#include <QFile>
 
 using namespace std;
 
@@ -18,8 +19,7 @@ namespace Ui {
 class MainServerLaunch;
 }
 
-class MainServerLaunch : public QWidget
-{
+class MainServerLaunch : public QWidget {
     Q_OBJECT
 
 private slots:

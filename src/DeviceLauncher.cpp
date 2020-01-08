@@ -27,7 +27,15 @@ void DeviceLauncher::on_vmburger_launch_clicked() {
         // Process is already running.
         qDebug("Process is already running");
     } else {
-        QString program = "setsid /home/kangdroid/test_launch_vm.sh\n";
+        //TODO: Move this thing somewhere global constants.
+        QString tb3_vm_launch_dest = "/tmp/TB3_launch_VM.sh";
+        QFile temp_file(":/script/test_launch_vm.sh");
+        temp_file.copy(tb3_vm_launch_dest);
+        QFile(tb3_vm_launch_dest).setPermissions(
+            QFileDevice::ReadUser |
+            QFileDevice::WriteUser |
+            QFileDevice::ExeUser);
+        QString program = "setsid /tmp/TB3_launch_VM.sh";
         mVMLaunchProcess.start(program);
         connect(&mVMLaunchProcess, SIGNAL(readyReadStandardError()), this, SLOT(printOutput())); // When reading STDOUT
 
