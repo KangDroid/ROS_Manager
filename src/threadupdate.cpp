@@ -6,7 +6,10 @@ ThreadUpdate::ThreadUpdate(QObject *parent): QThread(parent) {
 void ThreadUpdate::run() {
     QProcess mProcessGetFW;
     mProcessGetFW.setProcessChannelMode(QProcess::MergedChannels);
-    mProcessGetFW.start("/bin/bash");
+    mProcessGetFW.start("/home/kangdroid/Desktop/fw_ver.sh");
+    mProcessGetFW.waitForFinished();
+
+    /*mProcessGetFW.start("/bin/bash");
     mProcessGetFW.waitForStarted();
     mProcessGetFW.write("source /opt/ros/melodic/setup.bash\n");
     mProcessGetFW.write("source /home/kangdroid/catkin_ws/devel/setup.bash\n");
@@ -15,7 +18,7 @@ void ThreadUpdate::run() {
     mProcessGetFW.write("export ROS_HOSTNAME=192.168.0.17\n");
     mProcessGetFW.write("rostopic echo -n1 /firmware_version\n");
     mProcessGetFW.write("exit\n");
-    mProcessGetFW.waitForFinished();
+    mProcessGetFW.waitForFinished();*/
     QString output(mProcessGetFW.readAllStandardOutput());
     string changedPut = output.toStdString();
     /*stringstream tmp(changedPut);

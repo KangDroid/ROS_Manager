@@ -26,8 +26,24 @@ void DeviceInformation::on_thread_finish(const string val) {
     if (tup->isRunning()) {
         return;
     }
-    QString str = QString::fromStdString(val);
-    ui->mFWInfoLabel->setText(str);
+    // Parse string.
+    stringstream tmp;
+    tmp.str(val);
+    string tmp_two;
+    string hw_version;
+    string fw_version;
+    string sw_version;
+    for (int i = 0; tmp >> tmp_two; i++) {
+        if (tmp_two == "hardware:") {
+            tmp >> hw_version;
+        } else if (tmp_two == "firmware:") {
+            tmp >> fw_version;
+        } else if (tmp_two == "software:") {
+            tmp >> sw_version;
+        }
+    }
+    tmp_two = "HW Version: " + hw_version + "\n" + "FW Version: " + fw_version + "\n" + "SW Version: " + sw_version + "\n";
+    ui->mFWInfoLabel->setText(QString::fromStdString(tmp_two));
 }
 
 /**
